@@ -5,7 +5,7 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import cors from "cors";
 
-app.use(cors()); 
+app.use(cors());
 
 connecttodb();
 
@@ -19,7 +19,11 @@ const io = new Server(httpServer, {
 });
 
 io.on("connection", (socket) => {
-  console.log("User connected"+socket.id);
+  console.log("User connected" + socket.id);
+
+  socket.on("message", (data) => {
+    console.log(data);
+  });
 });
 
 httpServer.listen(config.port, () => {

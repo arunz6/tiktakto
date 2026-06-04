@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Togle from "./feature/togle/Togle";
-import Gamepage from "./feature/game/Gamepage";
+import socket from "./feature/service/socket";
 
 function App() {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log("Connected:", socket.id);
+    });
+
+    return () => {
+      socket.off("connect");
+    };
+  }, []);
+
   return (
     <>
       <Togle />
