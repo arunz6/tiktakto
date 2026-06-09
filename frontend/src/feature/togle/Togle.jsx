@@ -17,7 +17,7 @@ function App() {
   };
 
   if (page === "chat") {
-    return <Chat />;
+    return <Chat username={input} />;
   }
 
   if (page === "game") {

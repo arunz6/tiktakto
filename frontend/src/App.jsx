@@ -10,10 +10,6 @@ function App() {
     socket.on("connect", () => {
       console.log("Connected:", socket.id);
     });
-
-    return () => {
-      socket.off("connect");
-    };
   }, []);
 
   return (
