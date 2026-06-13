@@ -6,7 +6,7 @@ import axios from "axios";
 const Chat = () => {
   const [message, setMessage] = useState("");
   const [showGame, setShowGame] = useState(false);
-  let [messages, setMessages] = useState("");
+  let [messages, setMessages] = useState([]);
   const getMessages = async () => {
     const res = await axios.get("http://localhost:3000/api/message/all");
 
